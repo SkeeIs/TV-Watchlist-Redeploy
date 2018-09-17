@@ -1,0 +1,14 @@
+<li>
+	{{name}}
+
+    <button class="change-started" data-id="{{id}}" data-watchedstatus="{{watched_status}}">
+       {{#if watched_status}} <i class="fas fa-step-forward"></i> {{else}} <i class="fas fa-step-backward"></i> {{/if}}
+    </button>
+
+	<button class="change-liked" data-id="{{id}}" data-liked="{{liked}}">
+		{{#if liked}} <i class="fas fa-thumbs-up"></i> {{else}} <i class="fas fa-thumbs-down"></i> {{/if}}
+	</button>
+
+	<button class="delete-show" data-id="{{this.id}}"><i class="fas fa-trash-alt"></i>
+    </button>
+</li>

@@ -1,0 +1,76 @@
+<div class="jumbotron top jumbotron-fluid text-center">
+  <h1 class="display-4">
+      <span class="text-warning">TV</span> Show Tracker</h1>
+  <p class="lead">Add and track the shows you want to watch!</p>
+  <div class="container top-content">
+    <br>
+    <form class="create-form" action="/api/shows" method="post">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" id="show-name" name="name"
+                aria-label="Show Name"
+                placeholder="Show Name">
+            <div class="input-group-append">
+                <button class="btn btn-warning" type="submit">Add Show</button>
+            </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="jumbotron main jumbotron-fluid text-center"> 
+    <div class="row">
+        <div class="col-12 col-lg-4 mb-4">
+          <div class="card" id="not-started-shows">
+            <div class="card-header bg-warning border-warning">
+              <h4>Shows to Watch</h4>
+            </div>  
+            <div class="card-body">
+              <div class="card-text">  
+                {{#each shows}}
+                  {{#unless this.watched_status}} 
+                    {{> shows/show-block watched_status=true}}
+                  {{/unless}}
+                {{/each}}  
+              </div> 
+            </div>   
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 mb-4">
+          <div class="card" id="started-not-finished-shows">
+            <div class="card-header bg-warning border-warning">
+              <h4>Finished Shows</h4>
+            </div>  
+            <div class="card-body">
+              <div class="card-text">  
+                {{#each shows}}
+                  {{#if this.watched_status}}
+                    {{#unless this.liked}}
+                      {{> shows/show-block liked=false watched_status=false}}
+                    {{/unless}}  
+                  {{/if}}
+                {{/each}}  
+              </div>
+            </div>    
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 mb-4">
+          <div class="card" id="started-not-finished-shows">
+            <div class="card-header bg-warning border-warning">
+              <h4>Finished & Liked Shows</h4>
+            </div>  
+            <div class="card-body">
+              <div class="card-text">
+                {{#each shows}}
+                  {{#if this.watched_status}}
+                    {{#if this.liked}}
+                      {{> shows/show-block liked=true}}
+                    {{/if}}
+                  {{/if}}
+                {{/each}}  
+              </div>  
+          </div>
+        </div>
+    </div>
+</div>
