@@ -3,7 +3,7 @@
 A full-stack application deployed to heroku for tracking TV shows. You can add a series you want to watch, move it to the "watched" column once you've finished it & "like" it as well! 
 
 * Powered by Javascript, jquery, node.js, expess package, body-parser package, handlebars, Heroku deployment, html, bootstrap
-* [TV Tracker on Heroku]( )
+* [TV Tracker on Heroku](https://vast-falls-23902.herokuapp.com/)
 
 ### Image Preview
 
